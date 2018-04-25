@@ -1,0 +1,835 @@
+﻿@using StitchFab.Models
+
+@{
+    ViewBag.Title = "DetailFabric";
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+@{
+    var obj1 = (Product)ViewBag.product;
+    var obj2 = (List<Colour>)ViewBag.colours;
+    var obj4 = (Image)ViewBag.Image;
+    var obj5 = (List<Product>)ViewBag.allproduct;
+    var obj6 = (List<Image>)ViewBag.allimages;
+
+}
+<!--Product page working-->
+<div class="container">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="row">
+                <div class="preview col-md-6">
+
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1"><img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj4.Img1' class="imgsizer" /></div>
+                        <div class="tab-pane" id="pic-2"><img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj4.Img2' class="imgsizer" /></div>
+                        <div class="tab-pane" id="pic-3"><img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj4.Img3' class="imgsizer" /></div>
+                        <div class="tab-pane" id="pic-4"><img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj4.Img4' class="imgsizer" /></div>
+                    </div>
+                    <ul class="preview-thumbnail nav nav-tabs">
+                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj4.Img1' class="imgsizer2" /></a></li>
+                        <li><a data-target="#pic-2" data-toggle="tab"><img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj4.Img2' class="imgsizer2" /></a></li>
+                        <li><a data-target="#pic-3" data-toggle="tab"><img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj4.Img3' class="imgsizer2" /></a></li>
+                        <li><a data-target="#pic-4" data-toggle="tab"><img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj4.Img4' class="imgsizer2" /></a></li>
+                    </ul>
+
+                </div>
+
+                <div class="details col-md-6">
+                    <h3 class="product-title">@obj1.P_Name</h3>
+
+                    <!--STARS REVIEW-->
+                    <div class="stars">
+                        <form action="">
+                            <input class="star star-5" id="star-5" type="radio" name="star" />
+                            <label class="star star-5" for="star-5"></label>
+                            <input class="star star-4" id="star-4" type="radio" name="star" />
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-3" id="star-3" type="radio" name="star" />
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-2" id="star-2" type="radio" name="star" />
+                            <label class="star star-2" for="star-2"></label>
+                            <input class="star star-1" id="star-1" type="radio" name="star" />
+                            <label class="star star-1" for="star-1"></label>
+                        </form>
+                    </div>
+
+                    <div class="rating">
+                        <span class="review-no">41 reviews</span>
+                    </div>
+
+                    <p class="product-description">100% Cotton. Factory made with best fitting and stitching.</p>
+
+                    <p class="price">Price: <span>Rs.@obj1.Price</span></p>
+
+                    <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+
+                    <!--Quantity control-->
+                    <h5 class="sizes">Quantity:</h5>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="input-group number-spinner">
+                                <span class="input-group-btn data-dwn">
+                                    <button class="btn btn-default" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+                                </span>
+                                <input type="text" class="form-control text-center" value="1" min="1" max="40">
+                                <span class="input-group-btn data-up">
+                                    <button class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <h5 class="colors">
+                        Colors:
+                    </h5>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <div class="dropdown">
+                                                <button class="btn _select_color dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    @{    @obj2[0].Clr_Name<span class="caret _right"></span>
+                                                        var a = "color " + obj2[0].Clr_Name.ToLower();
+                                                        <span _text_display="@obj2[0].Clr_Name" class="color @a"></span>
+                                                    }
+                                                </button>
+                                                <ul class="dropdown-menu _select_color_drop" aria-labelledby="dropdownMenu1">
+                                                    @{
+
+                                                        foreach (var c in obj2)
+                                                        {
+                                                            var u = "color " + c.Clr_Name.ToLower();
+                                                            <li><span _text_display="@c.Clr_Name" class="@u"></span></li>
+
+
+                                                        }
+                                                    }
+                                                </ul>
+                                                <input type="hidden" name="_color" value="Green">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--Sizes working-->
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <h5 class="sizes">Sizes:</h5>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <form class="form-horizontal" method="post" action="@Url.Action("DetailFabric2")">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Neck(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeNeck" name="Neck" placeholder="Neck" value="1" min="1" max="30" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Chest(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeChest" name="Chest" placeholder="Chest" value="15" min="15" max="80" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Shoulder(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeShoulder" name="Shoulder" placeholder="Shoulder" value="1" min="1" max="60" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Half Shoulder Right(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeShoulder" name="H_Shoulder_Right" placeholder="Shoulder" value="1" min="1" max="60" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Half Shoulder Left(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeShoulder" name="H_Shoulder_Left" placeholder="Shoulder" value="1" min="1" max="60" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Back Width(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeBackWidth" name="Back_Width" placeholder="Back width" value="1" min="1" max="80" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Front Chest(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeFrontChest" name="Front_Chest" placeholder="Front chest" value="1" min="1" max="80" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Stomach(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeStomach" name="Stomach" placeholder="Stomach" value="15" min="10" max="80" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Waist(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeWaist" name="Waist" placeholder="Waist" value="10" min="10" max="80" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Sleeves(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeSleeves" name="Sleeves" placeholder="Sleeves" value="1" min="1" max="40" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Wrist(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeWrist" name="Wrist" placeholder="Wrist" value="1" min="1" max="20" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Bicep(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeBicep" name="Bicep" placeholder="Bicep" value="1" min="1" max="40" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Half Back Length(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeHalfBack" name="H_Back_Length" placeholder="Half back" value="1" min="1" max="100" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="divider"></div>
+                                <h5 class="sizes">Fill below fields for Shalwar/Pant measurements(only)</h5>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Full Back Length(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeFullback" name="F_Back_Length" placeholder="Full back" value="1" min="1" max="200" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Trouser Outseam(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeOutseam" name="Trouser_Outseam" placeholder="Outseam" value="1" min="1" max="100" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Trouser Inseam(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeInseam" name="Trouser_Inseam" placeholder="Inseam" value="1" min="1" max="100" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Crotch(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeCrotch" name="Crotch" placeholder="Crotch" value="1" min="1" max="40" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Thigh(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeThighs" name="Thigh" placeholder="Thigh" value="1" min="1" max="80" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <h6 class="col-md-2 sizes">Knee(inches)</h6>
+                                        <div class="col-md-2">
+                                            <input id="sizeKnee" name="Knee" placeholder="Knee" value="1" min="1" max="40" class="form-control input-md" required="" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="divider"></div>
+                                <!--ADD TO CART How to measure BUTTONS-->
+                                <div class="action">
+                                    <button class="add-to-cart btn btn-default" type="submit">add to cart</button>
+                                    <a href="~/Content/template/pdf/measure1.pdf" class="add-to-cart btn btn-default">How to measure</a>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Item slider text-->
+<div class="container">
+    <div class="row" id="slider-text">
+        <div class="col-md-6">
+            <h5 class="sizes">YOU MIGHT ALSO BE INTERESTED IN</h5>
+        </div>
+    </div>
+</div>
+<!-- Item slider-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+                <div class="carousel-inner">
+                    @{
+                        <div class="item active">
+                            <div class="col-xs-12 col-sm-6 col-md-2">
+                                @if (@obj5[0].Ct_Id == 4)
+                                {
+                                    <a href="@Url.Action("DetailFabric/" + @obj5[0].P_Id)">
+                                        <img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj6[0].Img1' class="img-responsive center-block imageslide">
+                                    </a>
+                                    <h5 class="text-center">@obj5[0].P_Name </h5>
+                                    <h5 class="text-center">@obj5[0].Price Rs</h5>
+                                }
+                                else
+                                {
+
+                                    <a href="@Url.Action("DetailProduct/"+@obj5[0].P_Id)">
+                                        <img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj6[0].Img1' class="img-responsive center-block imageslide">
+                                    </a>
+                                    <h5 class="text-center">@obj5[0].P_Name </h5>
+                                    <h5 class="text-center">@obj5[0].Price Rs</h5>
+                                }
+                            </div>
+                        </div>
+                        int length = 0;
+                        foreach (var v in obj5)
+                        {
+                            length++;
+                        }
+
+                        for (int i = 0; i < length; i++)
+                        {
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-2">
+                                    @if (@obj5[i].Ct_Id == 4)
+                                    {
+                                        <a href="@Url.Action("DetailFabric/" + @obj5[i].P_Id)"><img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj6[i].Img1' class="img-responsive center-block imageslide"></a>
+                                        <h5 class="text-center">@obj5[i].P_Name </h5>
+                                        <h5 class="text-center">@obj5[i].Price Rs</h5>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("DetailProduct/" + @obj5[i].P_Id)"><img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj6[i].Img1' class="img-responsive center-block imageslide"></a>
+                                        <h5 class="text-center">@obj5[i].P_Name </h5>
+                                        <h5 class="text-center">@obj5[i].Price Rs</h5>
+                                    }
+                                </div>
+                            </div>
+                        }
+
+                    }
+                </div>
+                <div id="slider-control">
+                    <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="https://s12.postimg.org/uj3ffq90d/arrow_left.png" alt="Left" class="img-responsive"></a>
+                    <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="https://s12.postimg.org/djuh0gxst/arrow_right.png" alt="Right" class="img-responsive"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Item slider end-->
+<!--COMMENTS LIST WORKING STARTING-->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1" id="logout">
+            <div class="page-header">
+                <h3 class="reviews">Leave your comment</h3>
+                <div class="logout">
+                    <button class="btn btn-default btn-circle text-uppercase" type="button" onclick="$('#logout').hide(); $('#login').show()">
+                        <span class="glyphicon glyphicon-off"></span> Logout
+                    </button>
+                </div>
+            </div>
+            <div class="comment-tabs">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Comments</h5></a></li>
+                    <li><a href="#add-comment" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Add comment</h5></a></li>
+                    <li><a href="#account-settings" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Account settings</h5></a></li>
+                </ul>
+                <div class="tab-content tab-layout">
+                    <div class="tab-pane active" id="comments-logout">
+                        <ul class="media-list">
+                            <li class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
+                                </a>
+                                <div class="media-body">
+                                    <div class="well well-lg">
+                                        <h5 class="media-heading text-uppercase reviews">Marco </h5>
+                                        <ul class="media-date text-uppercase reviews list-inline">
+                                            <li class="dd">22</li>
+                                            <li class="mm">09</li>
+                                            <li class="aaaa">2014</li>
+                                        </ul>
+                                        <p class="media-comment">
+                                            Great snippet! Thanks for sharing.
+                                        </p>
+                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyOne"><span class="glyphicon glyphicon-comment"></span> 2 comments</a>
+                                    </div>
+                                </div>
+                                <div class="collapse" id="replyOne">
+                                    <ul class="media-list">
+                                        <li class="media media-replied">
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/ManikRathee/128.jpg" alt="profile">
+                                            </a>
+                                            <div class="media-body">
+                                                <div class="well well-lg">
+                                                    <h5 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> The Hipster</h5>
+                                                    <ul class="media-date text-uppercase reviews list-inline">
+                                                        <li class="dd">22</li>
+                                                        <li class="mm">09</li>
+                                                        <li class="aaaa">2014</li>
+                                                    </ul>
+                                                    <p class="media-comment">
+                                                        Nice job Maria.
+                                                    </p>
+                                                    <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="media media-replied" id="replied">
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object img-circle" src="https://pbs.twimg.com/profile_images/442656111636668417/Q_9oP8iZ.jpeg" alt="profile">
+                                            </a>
+                                            <div class="media-body">
+                                                <div class="well well-lg">
+                                                    <h5 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> Mary</h5>
+                                                    <ul class="media-date text-uppercase reviews list-inline">
+                                                        <li class="dd">22</li>
+                                                        <li class="mm">09</li>
+                                                        <li class="aaaa">2014</li>
+                                                    </ul>
+                                                    <p class="media-comment">
+                                                        Thank you Guys!
+                                                    </p>
+                                                    <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kurafire/128.jpg" alt="profile">
+                                </a>
+                                <div class="media-body">
+                                    <div class="well well-lg">
+                                        <h5 class="media-heading text-uppercase reviews">Nico</h5>
+                                        <ul class="media-date text-uppercase reviews list-inline">
+                                            <li class="dd">22</li>
+                                            <li class="mm">09</li>
+                                            <li class="aaaa">2014</li>
+                                        </ul>
+                                        <p class="media-comment">
+                                            I'm looking for that. Thanks!
+                                        </p>
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/80lNjkcp6gI" allowfullscreen></iframe>
+                                        </div>
+                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/lady_katherine/128.jpg" alt="profile">
+                                </a>
+                                <div class="media-body">
+                                    <div class="well well-lg">
+                                        <h5 class="media-heading text-uppercase reviews">Kriztine</h5>
+                                        <ul class="media-date text-uppercase reviews list-inline">
+                                            <li class="dd">22</li>
+                                            <li class="mm">09</li>
+                                            <li class="aaaa">2014</li>
+                                        </ul>
+                                        <p class="media-comment">
+                                            Yehhhh... Thanks for sharing.
+                                        </p>
+                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyTwo"><span class="glyphicon glyphicon-comment"></span> 1 comment</a>
+                                    </div>
+                                </div>
+                                <div class="collapse" id="replyTwo">
+                                    <ul class="media-list">
+                                        <li class="media media-replied">
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jackiesaik/128.jpg" alt="profile">
+                                            </a>
+                                            <div class="media-body">
+                                                <div class="well well-lg">
+                                                    <h5 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> Lizz</h5>
+                                                    <ul class="media-date text-uppercase reviews list-inline">
+                                                        <li class="dd">22</li>
+                                                        <li class="mm">09</li>
+                                                        <li class="aaaa">2014</li>
+                                                    </ul>
+                                                    <p class="media-comment">
+                                                        Classy!
+                                                    </p>
+                                                    <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="add-comment">
+                        <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+                            <div class="form-group">
+                                <label for="email" class="col-sm-2 control-label">Comment</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="uploadMedia" class="col-sm-2 control-label">Upload media</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">http://</div>
+                                        <input type="text" class="form-control" name="uploadMedia" id="uploadMedia">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="account-settings">
+                        <form action="#" method="post" class="form-horizontal" id="accountSetForm" role="form">
+                            <div class="form-group">
+                                <label for="avatar" class="col-sm-2 control-label">Avatar</label>
+                                <div class="col-sm-10">
+                                    <div class="custom-input-file">
+                                        <label class="uploadPhoto">
+                                            Edit
+                                            <input type="file" class="change-avatar" name="avatar" id="avatar">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-sm-2 control-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Vilma palma">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nickName" class="col-sm-2 control-label">Nick name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="nickName" id="nickName" placeholder="Vilma">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="vilma@mail.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword" class="col-sm-2 control-label">New password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="newPassword" id="newPassword">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword" class="col-sm-2 control-label">Confirm password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button class="btn btn-primary btn-circle text-uppercase" type="submit" id="submit">Save changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1" id="login">
+            <div class="page-header">
+                <h3 class="reviews">Leave your comment</h3>
+                <div class="logout">
+                    <button class="btn btn-default btn-circle text-uppercase" type="button" onclick="$('#login').hide(); $('#logout').show()">
+                        <span class="glyphicon glyphicon-off"></span> Login
+                    </button>
+                </div>
+            </div>
+            <div class="comment-tabs">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#comments-login" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Comments</h5></a></li>
+                    <li><a href="#add-comment-disabled" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Add comment</h5></a></li>
+                    <li><a href="#new-account" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Create an account</h5></a></li>
+                </ul>
+                <div class="tab-content tab-layout">
+                    <div class="tab-pane active" id="comments-login">
+                        <ul class="media-list">
+                            <li class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
+                                </a>
+                                <div class="media-body">
+                                    <div class="well well-lg">
+                                        <h5 class="media-heading text-uppercase reviews">Marco</h5>
+                                        <ul class="media-date text-uppercase reviews list-inline">
+                                            <li class="dd">22</li>
+                                            <li class="mm">09</li>
+                                            <li class="aaaa">2014</li>
+                                        </ul>
+                                        <p class="media-comment">
+                                            Great snippet! Thanks for sharing.
+                                        </p>
+                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyThree"><span class="glyphicon glyphicon-comment"></span> 2 comments</a>
+                                    </div>
+                                </div>
+                                <div class="collapse" id="replyThree">
+                                    <ul class="media-list">
+                                        <li class="media media-replied">
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/ManikRathee/128.jpg" alt="profile">
+                                            </a>
+                                            <div class="media-body">
+                                                <div class="well well-lg">
+                                                    <h5 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> The Hipster</h5>
+                                                    <ul class="media-date text-uppercase reviews list-inline">
+                                                        <li class="dd">22</li>
+                                                        <li class="mm">09</li>
+                                                        <li class="aaaa">2014</li>
+                                                    </ul>
+                                                    <p class="media-comment">
+                                                        Nice job Maria.
+                                                    </p>
+                                                    <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="media media-replied" id="replied">
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object img-circle" src="https://pbs.twimg.com/profile_images/442656111636668417/Q_9oP8iZ.jpeg" alt="profile">
+                                            </a>
+                                            <div class="media-body">
+                                                <div class="well well-lg">
+                                                    <h5 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> Mary</h5>
+                                                    <ul class="media-date text-uppercase reviews list-inline">
+                                                        <li class="dd">22</li>
+                                                        <li class="mm">09</li>
+                                                        <li class="aaaa">2014</li>
+                                                    </ul>
+                                                    <p class="media-comment">
+                                                        Thank you Guys!
+                                                    </p>
+                                                    <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kurafire/128.jpg" alt="profile">
+                                </a>
+                                <div class="media-body">
+                                    <div class="well well-lg">
+                                        <h5 class="media-heading text-uppercase reviews">Nico</h5>
+                                        <ul class="media-date text-uppercase reviews list-inline">
+                                            <li class="dd">22</li>
+                                            <li class="mm">09</li>
+                                            <li class="aaaa">2014</li>
+                                        </ul>
+                                        <p class="media-comment">
+                                            I'm looking for that. Thanks!
+                                        </p>
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/80lNjkcp6gI" allowfullscreen></iframe>
+                                        </div>
+                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/lady_katherine/128.jpg" alt="profile">
+                                </a>
+                                <div class="media-body">
+                                    <div class="well well-lg">
+                                        <h5 class="media-heading text-uppercase reviews">Kriztine</h5>
+                                        <ul class="media-date text-uppercase reviews list-inline">
+                                            <li class="dd">22</li>
+                                            <li class="mm">09</li>
+                                            <li class="aaaa">2014</li>
+                                        </ul>
+                                        <p class="media-comment">
+                                            Yehhhh... Thanks for sharing.
+                                        </p>
+                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyFour"><span class="glyphicon glyphicon-comment"></span> 1 comment</a>
+                                    </div>
+                                </div>
+                                <div class="collapse" id="replyFour">
+                                    <ul class="media-list">
+                                        <li class="media media-replied">
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jackiesaik/128.jpg" alt="profile">
+                                            </a>
+                                            <div class="media-body">
+                                                <div class="well well-lg">
+                                                    <h5 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> Lizz</h5>
+                                                    <ul class="media-date text-uppercase reviews list-inline">
+                                                        <li class="dd">22</li>
+                                                        <li class="mm">09</li>
+                                                        <li class="aaaa">2014</li>
+                                                    </ul>
+                                                    <p class="media-comment">
+                                                        Classy!
+                                                    </p>
+                                                    <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="add-comment-disabled">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                            </button>
+                            <strong>Hey!</strong> If you already have an account <a href="#" class="alert-link">Login</a> now to make the comments you want. If you do not have an account yet you're welcome to <a href="#" class="alert-link"> create an account.</a>
+                        </div>
+                        <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+                            <div class="form-group">
+                                <label for="email" class="col-sm-2 control-label">Comment</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" name="addComment" id="addComment" rows="5" disabled></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="uploadMedia" class="col-sm-2 control-label">Upload media</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">http://</div>
+                                        <input type="text" class="form-control" name="uploadMedia" id="uploadMedia" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button class="btn btn-success btn-circle text-uppercase disabled" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="new-account">
+                        <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+                            <div class="form-group">
+                                <label for="name" class="col-sm-2 control-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="name" id="name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" name="email" id="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-sm-2 control-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="password" id="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label for="agreeTerms" class="col-sm-offset-2 col-sm-10">
+                                        <input type="checkbox" name="agreeTerms" id="agreeTerms"> I agree all <a href="#">Terms & Conditions</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button class="btn btn-primary btn-circle text-uppercase" type="submit" id="submit">Create an account</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--COMMENTS LIST WORKING ENDING-->
+@section s1
+{
+    <link href="~/Content/template/css/detailProduct/detailproductfabric.css" rel="stylesheet" />
+}
+@section s2
+{
+    <script src="~/Content/template/js/detailProduct/detailproductfabric.js"></script>
+}

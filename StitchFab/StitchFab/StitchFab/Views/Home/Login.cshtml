@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_simple.cshtml";
+}
+
+
+<br />
+<div class="container">    
+    <div class="card card-container">  
+        <span>@ViewBag.Msg</span>      
+        <span class="glyphicon glyphicon-user"></span>
+          <br />
+    @{var id = ViewBag.pid; }
+         <form method="post" class="form-signin" action="@Url.Action("LoginPost")">
+            <span id="reauth-email" class="reauth-email"></span>
+            <input type="hidden" name="pid" value="@id" />
+            <input type="email" id="inputEmail" name="Email" class="form-control" placeholder="Email address" required autofocus>
+            <input type="password" id="inputPassword" name="Password" class="form-control" placeholder="Password" required>
+            <label>Login As</label>&nbsp;<input type="radio" name="login" value="Customer" required /> Customer &nbsp;
+            <input type="radio" name="login" value="Tailor" required /> Tailor  &nbsp;
+            
+            <div id="remember" class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+        </form><!-- /form -->
+        <a href="#" class="forgot-password">
+            Forgot the password?
+        </a>
+    <br />
+        <a href="@Url.Action("SignUpPost")" class="forgot-password" >
+            Not Register?
+        </a>
+    </div><!-- /card-container -->
+</div><!-- /container -->
+
+
+

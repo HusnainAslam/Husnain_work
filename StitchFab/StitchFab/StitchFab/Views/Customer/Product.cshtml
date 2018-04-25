@@ -1,0 +1,79 @@
+﻿@using StitchFab.Models
+
+
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 ">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+                    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                        <ul class="nav">
+                            @{
+                                var obj2 = (List<Product>)ViewBag.Product;
+                                int tid = 0;
+                                if (obj2.Count() != 0) { tid = obj2[0].T_Id; }
+                                var obj = (List<Category>)ViewBag.Categories;
+                                foreach (var c in obj)
+                                {
+                                <li><a href="@Url.Action("Product/", new { Tid = @tid ,Ct_Id=c.Ct_Id})" style="color:black;font-weight:bold">@c.Ct_Name<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <div class="col-lg-9">
+            @{
+                var obj1 = (List<Product>)ViewBag.Product;
+                var obj4 = (List<Image>)ViewBag.Image;
+                int length = 0;
+                foreach(var s in obj1)
+                { length++; }
+                for(int i=length-1;i>=0;i--)
+                {
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="thumbnail">
+                            <a href="@Url.Action("DetailProduct/"+@obj1[i].P_Id)">
+                                <img src='@Url.Content("~/Content/template/img/TailorProduct")/@obj4[i].Img1'  style="width:200px;height:200px" alt="...">
+                                <h4>@obj1[i].P_Name</h4>
+                                <div class="ratings">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="price">@obj1[i].Price Rs</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+

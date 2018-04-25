@@ -1,0 +1,46 @@
+﻿@using StitchFab.Models
+@{
+    ViewBag.Title = "MyProducts";
+    Layout = "~/Views/Shared/_TaylorNav.cshtml";
+}
+<div class="container">
+    <h2>My Products</h2>
+    <br />
+    <a href="@Url.Content("AddNewProducts")"><input type="button" class="btn-info" value="Add New " /></a>
+    <br />
+    <br />
+    <div class=" gallery"> 
+             @{
+                 var obj = (List<Image>)ViewBag.images;
+                 int length=0;
+                 foreach(var v in obj)
+                 {
+                     length++;
+                 }
+                 var obj1=(List<Product>)ViewBag.product;
+                  
+               //  int length=obj.Count() ;
+                 for (int i = length - 1; i >= 0;i-- )
+                 {
+                      <div class="col-lg-3 col-md-4 col-xs-6 thumbnail">                
+                        <img class="img-responsive img-size" src='@Url.Content("~/Content/template/img/TailorProduct")/@obj[i].Img1' style=" height:200px;width:300px" />  
+                         <div class="control-group">
+                            <small><label>@obj1[i].P_Name</label></small> <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                             <small><label>Rs.@obj1[i].Price</label></small>                          
+                         </div>
+                         <a href="/Tailor/EditProduct/@obj1[i].P_Id" style="cursor:pointer">Edit</a><span>&nbsp;&nbsp;</span>
+                        <a href="#" style="cursor:pointer">Delete</a>        
+                    </div> 
+             }                
+                  
+             }
+                                                                    
+        </div>
+    
+
+</div>
+
+
+
+
+

@@ -1,0 +1,89 @@
+﻿
+@model StitchFab.Models.Tailor
+@using StitchFab.Models
+@Styles.Render("~/Content/template/css/profilepic.css")
+@Scripts.Render("~/Content/template/js/profilepic.js")
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_TaylorNav.cshtml";
+    var obj = (Tailor)Session["Tailor"];
+}
+
+
+<div class="container">
+    <h1>Edit Profile</h1>
+    <hr>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" title="Click to change Photo" href="@Url.Content("ProfilePic")">
+                <img class="img-responsive img-size" src='@Url.Content("~/Content/template/img/TailorProfile")/@obj.ProfilePicName' style=" height:200px;
+                     width:300px" />
+            </a>
+            
+        </div>
+
+        <!-- edit form column -->
+        <div class="col-md-8 personal-info">
+            <h3>Personal info</h3>
+            <form class="form-horizontal" role="form" method="post" action="@Url.Content("EditProfile2")">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Name:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" name="Name" value="@obj.Name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text"name="Email" value="@obj.Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Password:</label>
+                    <div class="col-md-8">
+                        <input class="form-control"  name="Password" value="@obj.Password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> Conform Password:</label>
+                    <div class="col-md-8">
+                        <input  id="pass2" onkeyup="checkPass(); return false;" name="password_confirm" value="@obj.Password" class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Address:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text"name="Address" value="@obj.Address" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Contact:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" name="Contact" value="@obj.Contact" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">CNIC</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" name="CNIC" value="@obj.CNIC" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        <input type="submit" class="btn btn-primary" value="Save Changes" onclick="alert('click ok to submit changes')">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+

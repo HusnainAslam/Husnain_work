@@ -1,0 +1,237 @@
+﻿@using StitchFab.Models
+
+@{
+    ViewBag.Title = "AddNewProducts";
+    Layout = "~/Views/Shared/_TaylorNav.cshtml";
+}
+@{
+    var obj7 = (Image)ViewBag.image;
+    var obj8 = (Product)ViewBag.products;
+
+}
+
+<div class="container row">
+    <br />
+    <div class=" col-lg-8 col-lg-offset-4">
+        <form method="post" action="@Url.Action("EditProduct2")" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="exampleSelect1">Select Category</label>
+                <select class="form-control" id="exampleSelect1" name="Ct_Name">
+                    @{
+                        var obj1 = (Category)ViewBag.Scategories;
+                        var obj2 = (List<Category>)ViewBag.category;  
+                          <option>@obj1.Ct_Name</option>               
+                        foreach (var s in obj2)
+                        {
+                            if(s.Ct_Id!=obj1.Ct_Id) 
+                            {
+                                 <option>@s.Ct_Name</option>  
+                            }  
+                            
+                        }
+
+                    }
+                </select>
+            </div>
+            <fieldset class="form-group">
+                <legend>Select Size</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        @{
+                            var obj3 = (List<Size>)ViewBag.Ssizes;
+                            var obj4=(List<Size>)ViewBag.size;
+                            foreach (var s1 in obj4)
+                            {
+                                bool flag=true;
+                                foreach(var ss in obj3)
+                                {
+                                    if(ss.Size_Id==s1.Size_Id)
+                                    { 
+                                        <input type="checkbox" class="form-check-input" checked name="SizeId" value="@s1.Size_Id">
+                                        <small>@s1.Size_Name</small>
+                                        flag = false;
+                                    }
+                                    
+                                }
+                                if (flag) 
+                                {
+                                    <input type="checkbox" class="form-check-input" name="SizeId" value="@s1.Size_Id">
+                                    <small>@s1.Size_Name</small>         
+                                }
+                                                                                       
+                            }
+
+                        }
+
+                    </label>
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Select Color</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        @{
+                            
+                            var obj5 = (List<Colour>)ViewBag.Sclrs;
+                            var obj6 = (List<Colour>)ViewBag.clr;
+                            foreach (var s2 in obj6)
+                            {
+                                bool flag1 = true;
+                                foreach(var sss in obj5)
+                                {
+                                   if(sss.Clr_Id==s2.Clr_Id)
+                                    {
+                                        <input type="checkbox" class="form-check-input"  checked name="Clr_Id" value="@s2.Clr_Id">
+                                        <small>@s2.Clr_Name</small>
+                                           flag1=false;
+                                     } 
+                                
+                                }
+                                if(flag1)
+                                {
+                                    <input type="checkbox" class="form-check-input"  name="Clr_Id" value="@s2.Clr_Id">
+                                        <small>@s2.Clr_Name</small>
+                                }                                                               
+                            }
+
+                        }
+                    </label>
+                </div>
+            </fieldset>   <br /> <br />
+            <div class=" col-lg-4 ">                
+                    <div class=" thumb">
+                            <figure>
+                                <img class="img-responsive img-size" id="Img1" src='@Url.Content("~/Content/template/img/TailorProduct")/@obj7.Img1' style=" height:200px;
+                        width:300px" />                                
+                            </figure>                                                
+                    </div>
+                <div style="height:0px;overflow:hidden">
+                    <input onchange="readURL1(this);" type="file" id="fileinput1" name="Img1" />
+                </div>
+                     <button type="button" onclick="chosseFile1();">Chosse File</button>
+                <div class=" thumb">
+                    <figure>
+                        <img class="img-responsive img-size" id="Img2"  src='@Url.Content("~/Content/template/img/TailorProduct")/@obj7.Img2' style=" height:200px;
+                        width:300px" />
+                    </figure>
+                    
+                </div>
+                <div style="height:0px;overflow:hidden">
+                    <input onchange="readURL2(this);" type="file" id="fileinput2" name="Img2" />
+                </div>
+                <button type="button" onclick="chosseFile2();">Chosse File</button> 
+             </div> 
+            
+            <div class=" col-lg-4 ">
+                <div class=" thumb">
+                    <figure>
+                        <img class="img-responsive img-size" id="Img3" src='@Url.Content("~/Content/template/img/TailorProduct")/@obj7.Img3' style=" height:200px;
+                        width:300px" />
+                    </figure>
+
+                </div>
+                <div style="height:0px;overflow:hidden">
+                    <input onchange="readURL3(this);" type="file" id="fileinput3" name="Img3" />
+                </div>
+                <button type="button" onclick="chosseFile3();">Chosse File</button> 
+                <div class=" thumb">
+                    <figure>
+                        <img class="img-responsive img-size" id="Img4"  src='@Url.Content("~/Content/template/img/TailorProduct")/@obj7.Img4' style=" height:200px;
+                        width:300px" />
+                    </figure>
+
+                </div>
+                <div style="height:0px;overflow:hidden">
+                    <input onchange="readURL4(this);" type="file" id="fileinput4" name="Img4" />
+                </div>
+                <button type="button" onclick="chosseFile4();">Chosse File</button> 
+            </div>
+           
+            <br />
+            <div class="col-lg-12">
+                <div class="control-group col-lg-6">
+                    <label class="control-label" for="price">Price</label>
+                    <div class="controls ">
+                        <input type="text" id="price" name="Price" placeholder="Numeric" class="form-control input-md" value="@obj8.Price">
+                    </div>
+                    <br />
+                </div>
+                <div class="control-group col-lg-6">
+                    <label class="control-label" for="product">Product Name</label>
+                    <div class="controls">
+                        <input type="text" id="product" name="P_Name" placeholder="" class="form-control input-md" value="@obj8.P_Name">
+                    </div><br />
+                </div>
+                 <div class="col-lg-6">
+                    <input type="hidden" value="@obj8.Img_Id" name="ImgId" />       
+                     <button type="submit" class="btn btn-primary">Submit</button>             
+                </div>                            
+            </div>  
+            <div>
+                
+            </div>               
+    </form>
+    </div>
+</div>
+<script>
+    function chosseFile1() {
+        $("#fileinput1").click();
+    }
+    function readURL1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#Img1')
+                .attr('src', e.target.result)
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function chosseFile2() {
+        $("#fileinput2").click();
+    }
+    function readURL2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#Img2')
+                .attr('src', e.target.result)
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function chosseFile3() {
+        $("#fileinput3").click();
+    }
+    function readURL3(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#Img3')
+                .attr('src', e.target.result)
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function chosseFile4() {
+        $("#fileinput4").click();
+    }
+    function readURL4(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#Img4')
+                .attr('src', e.target.result)
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
+
+
+
+
+

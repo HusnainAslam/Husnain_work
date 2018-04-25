@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_TaylorNav.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $("#mytable #checkall").click(function () {
+            if ($("#mytable #checkall").is(':checked')) {
+                $("#mytable input[type=checkbox]").each(function () {
+                    $(this).prop("checked", true);
+                });
+
+            } else {
+                $("#mytable input[type=checkbox]").each(function () {
+                    $(this).prop("checked", false);
+                });
+            }
+        });
+
+        $("[data-toggle=tooltip]").tooltip();
+    });
+</script>
+
+
+<div class="container row">
+   
+        <div class="col-md-12">
+            <h2>List of Orders</h2>
+            <div class="table-responsive">
+
+                <table id="mytable" class="table table-bordred table-striped">
+                    <thead>
+                    <th>Customer Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Orders</th>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mohsin</td>
+                            <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+                            <td>isometric.mohsin@gmail.com</td>
+                            <td>+923335586757</td>
+                            <td><a href="\Tailor\ViewOrder" style="cursor:pointer">View Order</a></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+ </div>
+

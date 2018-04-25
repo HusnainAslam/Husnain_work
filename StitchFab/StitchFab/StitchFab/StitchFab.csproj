@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A48F321F-6963-425C-9BB3-1B811D7D44D7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StitchFab</RootNamespace>
+    <AssemblyName>StitchFab</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\template\css\detailProduct\" />
+    <Folder Include="Content\template\img\TailorProduct\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TailorController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bal.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Colour.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Dal.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Items.cs" />
+    <Compile Include="Models\Measurements.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Size.cs" />
+    <Compile Include="Models\Tailor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\template\css\bootstrap.css" />
+    <Content Include="Content\template\css\font-awesome.css" />
+    <Content Include="Content\template\css\Footer.css" />
+    <Content Include="Content\template\css\login.css" />
+    <Content Include="Content\template\css\product.css" />
+    <Content Include="Content\template\css\profilepic.css" />
+    <Content Include="Content\template\css\sidebar.css" />
+    <Content Include="Content\template\css\style.css" />
+    <Content Include="Content\template\css\tailor.css" />
+    <Content Include="Content\template\img\kurta5.jpg" />
+    <Content Include="Content\template\img\ladies.jpg" />
+    <Content Include="Content\template\img\mix.jpg" />
+    <Content Include="Content\template\img\pair.jpg" />
+    <Content Include="Content\template\img\products\jeans.jpg" />
+    <Content Include="Content\template\img\products\kurta1.jpg" />
+    <Content Include="Content\template\img\products\kurta2.jpg" />
+    <Content Include="Content\template\img\products\kurta3.jpg" />
+    <Content Include="Content\template\img\products\kurta4.jpg" />
+    <Content Include="Content\template\img\products\pent-shirt.jpg" />
+    <Content Include="Content\template\img\products\shirts.jpg" />
+    <Content Include="Content\template\img\products\t-shirts.jpg" />
+    <Content Include="Content\template\img\shirts-colors.jpg" />
+    <Content Include="Content\template\img\TailorProfile\1f28ca45-c8e9-45c1-bf97-7f347352cc50.jpg" />
+    <Content Include="Content\template\img\TailorProfile\2538e6bb-6222-4780-9a72-e46e35f7e35a.jpg" />
+    <Content Include="Content\template\img\TailorProfile\3918941b-951c-4f1a-9210-bbfdbff25257.jpg" />
+    <Content Include="Content\template\img\TailorProfile\39f613ee-9c95-4434-b72f-3021aea7161f.jpg" />
+    <Content Include="Content\template\img\TailorProfile\6261f9b3-9792-47e3-a490-b3dd2eba431d.jpg" />
+    <Content Include="Content\template\img\TailorProfile\6de9650b-5216-4c7b-a4fa-671050595dd9.jpg" />
+    <Content Include="Content\template\img\TailorProfile\79fa891f-7e7d-4b82-b6bd-ecd25b48f056.jpg" />
+    <Content Include="Content\template\img\TailorProfile\83c81d72-3754-4c0f-9ee4-315496dfdbf5.jpg" />
+    <Content Include="Content\template\img\TailorProfile\909cf780-5f9a-42ec-8559-46236520f8f6.jpg" />
+    <Content Include="Content\template\img\TailorProfile\9a5287dc-51c5-4e1f-9786-3d2727d65738.jpg" />
+    <Content Include="Content\template\img\TailorProfile\aa16d3a4-1faf-4ebe-b2b3-f5cb54fd8fbc.jpg" />
+    <Content Include="Content\template\img\TailorProfile\c8436f04-42f5-45e5-8bf5-c25f6a5e4fa6.jpg" />
+    <Content Include="Content\template\img\TailorProfile\cd9dacad-4c23-4aab-b2b6-44020599ca83.jpg" />
+    <Content Include="Content\template\img\TailorProfile\d7bb974d-00e1-4297-af96-b28de89c06b0.jpg" />
+    <Content Include="Content\template\js\bootstrap.js" />
+    <Content Include="Content\template\js\custom.js" />
+    <Content Include="Content\template\js\detailProduct\ColorSelection.js" />
+    <Content Include="Content\template\js\detailProduct\Productpage.js" />
+    <Content Include="Content\template\js\detailProduct\RelatedProductSlider.js" />
+    <Content Include="Content\template\js\JavaScript1.js" />
+    <Content Include="Content\template\js\jquery-1.11.1.min.js" />
+    <Content Include="Content\template\js\jquery.flexslider.js" />
+    <Content Include="Content\template\js\jquery.mixitup.min.js" />
+    <Content Include="Content\template\js\jquery.prettyPhoto.js" />
+    <Content Include="Content\template\js\profilepic.js" />
+    <Content Include="Content\template\js\wow.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\template\fonts\flexslider-icon.eot" />
+    <Content Include="Content\template\fonts\flexslider-icon.svg" />
+    <Content Include="Content\template\fonts\flexslider-icon.ttf" />
+    <Content Include="Content\template\fonts\flexslider-icon.woff" />
+    <Content Include="Content\template\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\template\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\template\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\template\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\template\fonts\FontAwesome.otf" />
+    <Content Include="Content\template\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\template\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\template\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\template\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\template\img\pdf\measure1.pdf" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\Customer\DetailProduct.cshtml" />
+    <Content Include="Views\Customer\Fabric.cshtml" />
+    <Content Include="Views\Customer\Product.cshtml" />
+    <Content Include="Views\Customer\Tailor.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_login.cshtml" />
+    <Content Include="Views\Shared\_simple.cshtml" />
+    <Content Include="Views\Shared\_TaylorNav.cshtml" />
+    <Content Include="Views\Shared\_template.cshtml" />
+    <Content Include="Views\Tailor\EditProfile.cshtml" />
+    <Content Include="Views\Tailor\Index.cshtml" />
+    <Content Include="Views\Tailor\MyProducts.cshtml" />
+    <Content Include="Views\Tailor\ProfilePic.cshtml" />
+    <Content Include="Views\Tailor\TailorProfile.cshtml" />
+    <Content Include="Views\Tailor\AddNewProducts.cshtml" />
+    <Content Include="Views\Tailor\EditProduct.cshtml" />
+    <Content Include="Views\Tailor\Orders.cshtml" />
+    <Content Include="Views\Tailor\ViewOrder.cshtml" />
+    <Content Include="Views\Customer\DetailFabric.cshtml" />
+    <Content Include="Views\Shared\_CustomerNav.cshtml" />
+    <Content Include="Views\Customer\ViewCart.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3077</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:36700/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

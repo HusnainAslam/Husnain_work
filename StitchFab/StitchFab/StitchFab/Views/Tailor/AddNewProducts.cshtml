@@ -1,0 +1,83 @@
+﻿@using StitchFab.Models
+
+@{
+    ViewBag.Title = "AddNewProducts";
+    Layout = "~/Views/Shared/_TaylorNav.cshtml";
+}
+<div class="container row">
+    <br />
+    <div class=" col-lg-4 col-lg-offset-4 ">
+        <form method="post" action="@Url.Action("UploadProduct")" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="exampleSelect1">Select Category</label>
+                <select class="form-control" id="exampleSelect1" name="Ct_Name">
+                    @{
+                        var obj = (List<Category>)ViewBag.Categories;
+                        foreach (var s in obj)
+                        {
+                            <option>@s.Ct_Name</option>
+                        }
+
+                    }
+                </select>
+            </div>
+            <fieldset class="form-group">
+                <legend>Select Size</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        @{
+                            var obj2 = (List<Size>)ViewBag.Sizes;
+                            foreach (var s1 in obj2)
+                            {
+                                <input type="checkbox" class="form-check-input" name="SizeId" value="@s1.Size_Id">
+                                <small>@s1.Size_Name</small>
+                            }
+
+                        }
+
+                    </label>
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Select Color</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        @{
+                            var obj3 = (List<Colour>)ViewBag.Colors;
+                            foreach (var s2 in obj3)
+                            {
+                                <input type="checkbox" class="form-check-input" name="Clr_Id" value="@s2.Clr_Id">
+                                <small>@s2.Clr_Name</small>
+                            }
+
+                        }
+                    </label>
+                </div>
+            </fieldset>   <br /> <br />
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="Img1" required>
+            <h3>Add Multiple Images of product</h3>
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="Img2"> <br />
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="Img3"> <br />
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="Img4">
+            <br />
+            <div class="control-group">
+                <label class="control-label" for="price">Price</label>
+                <div class="controls">
+                    <input type="text" id="price" name="Price" placeholder="Numeric" class="form-control input-md">
+
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="product">Product Name</label>
+                <div class="controls">
+                    <input type="text" id="product" name="P_Name" placeholder="" class="form-control input-md">
+                </div>
+            </div><br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+

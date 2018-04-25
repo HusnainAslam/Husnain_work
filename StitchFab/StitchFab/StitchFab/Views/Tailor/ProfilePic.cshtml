@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "ProfilePic";
+    Layout = "~/Views/Shared/_simple.cshtml";
+}
+@Styles.Render("~/Content/template/css/profilepic.css")
+@Scripts.Render("~/Content/template/js/profilepic.js")
+<div class="container">
+    <div class="col-md-6">
+        <form method="post" enctype="multipart/form-data" action="@Url.Action("ProfilePicLoad")">
+            <div class="form-group">
+                <label>Upload Photo</label>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            Browse… <input type="file" id="imgInp" name="Img">
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" readonly>
+                </div>
+                <img id='img-upload' />
+            </div>
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-primary" type="submit">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

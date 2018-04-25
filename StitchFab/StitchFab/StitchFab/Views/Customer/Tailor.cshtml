@@ -1,0 +1,32 @@
+﻿@using StitchFab.Models
+@model List<Tailor>
+@{
+    ViewBag.Title = "Tailor";
+    Layout = "~/Views/Shared/_template.cshtml";
+   
+}
+<div class="container">
+    <h2 >Available Tailors</h2>
+    <div class="gallery">
+
+        @foreach (var t in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail"  href=@Url.Action("Product/", new { Tid = @t.Tid ,Ct_Id=0})>
+                    <figure>
+                        <img class="img-responsive img-size" src='@Url.Content("~/Content/template/img/TailorProfile")/@t.ProfilePicName' style="height:200px";
+                        width:300px" />
+                        <figcaption style="text-align:center;text-transform:uppercase">@t.Name</figcaption>
+                    </figure>
+                </a>
+           </div>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+

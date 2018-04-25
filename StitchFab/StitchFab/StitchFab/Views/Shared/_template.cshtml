@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="@Url.Content("~/Content/template/")css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME STYLE  -->
+    <link href="@Url.Content("~/Content/template/")css/font-awesome.css" rel="stylesheet" />
+    <!-- FLEXSLIDER STYLE  -->
+    
+    <!-- CUSTOM STYLE  -->
+    <link href="@Url.Content("~/Content/template/")css/style.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/template/")css/product.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/template/")css/Footer.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/template/")css/tailor.css" rel="stylesheet" />
+    @RenderSection("s1", false)
+    @RenderSection("s2", false)
+
+    <!-- GOOGLE FONTS  -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+    <!-- WE PUT SCRIPTS AT THE END TO LOAD PAGE FASTER-->
+    <!--CORE SCRIPTS PLUGIN-->
+    <script src="@Url.Content("~/Content/template/")js/jquery-1.11.1.min.js"></script>
+    <!--BOOTSTRAP SCRIPTS PLUGIN-->
+    <script src="@Url.Content("~/Content/template/")js/bootstrap.js"></script>
+    <!--WOW SCRIPTS PLUGIN-->
+    <script src="@Url.Content("~/Content/template/")js/wow.js"></script>
+    <!--FLEXSLIDER SCRIPTS PLUGIN-->
+    <script src="@Url.Content("~/Content/template/")js/jquery.flexslider.js"></script>
+    <!--CUSTOM SCRIPTS -->
+    <script src="@Url.Content("~/Content/template/")js/custom.js"></script>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    
+     
+    @RenderSection("ModalScript", false)
+    
+</head>
+<body>
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="logo navbar-brand">
+                    <a href="index.html">STITCH FAB</a>
+                </div>
+            </div>
+            <div class="right-div">
+                <ul class="list-inline">
+                    <li><a href="/Home/Login"><input type="button" class="btn btn-success" value="Sign in"></a></li>
+                    <li><a href="/Home/SignUp"><input type="button" class="btn btn-success" value="Sign Up"></a></li>
+                    <li><a><span class="glyphicon  glyphicon-shopping-cart" style="font-size:25px;"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse nave">
+                        <ul id="menu-top" class="nav navbar-nav navbar-inner ">
+                            <li><a href="@Url.Action("Index", "Home")" >Home</a></li>
+                            <li><a href="@Url.Action("About", "Home")" >About</a></li>
+                            <li><a href="@Url.Action("Tailor", "Customer")" >Tailor</a></li>
+                            <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div>
+        @RenderBody()
+        <hr />
+        <footer class="footer1">
+            <div class="container">
+                <div class="row">
+                    <!-- row -->
+
+                    <div class="col-lg-3 col-md-3">
+                        <!-- widgets column left -->
+
+                        <ul class="list-unstyled clear-margins">
+                            <!-- widgets -->
+
+                            <li class="widget-container widget_nav_menu">
+                                <!-- widgets list -->
+
+                                <h1 class="title-widget">About Us</h1>
+
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Company</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Mission</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>How it Works</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Terms & Conditions</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Privacy Policy</a></li>
+                                </ul>
+
+                            </li>
+
+                        </ul>
+
+
+                    </div><!-- widgets column left end -->
+
+
+                    <div class="col-lg-3 col-md-3">
+                        <!-- widgets column left -->
+                        <ul class="list-unstyled clear-margins">
+                            <!-- widgets -->
+
+                            <li class="widget-container widget_nav_menu">
+                                <!-- widgets list -->
+
+                                <h1 class="title-widget">Why Stitch Fab</h1>
+
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Ease of Access</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Custome Tailors</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Perfect Measurements</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Custome Design</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Customer Reviews</a></li>
+
+                                </ul>
+
+                            </li>
+
+                        </ul>
+
+
+                    </div><!-- widgets column left end -->
+                    <div class="col-lg-3 col-md-3">
+                        <!-- widgets column left -->
+
+                        <ul class="list-unstyled clear-margins">
+                            <!-- widgets -->
+
+                            <li class="widget-container widget_nav_menu">
+                                <!-- widgets list -->
+
+                                <h1 class="title-widget">Customer Care</h1>
+
+                                <ul>
+
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>FAQ's</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Contact us</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Deleivery</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Complain Form</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Customer Testimonials</a></li>
+                                </ul>
+
+                            </li>
+
+                        </ul>
+
+
+                    </div><!-- widgets column left end -->
+
+
+                    <div class="col-lg-3 col-md-3">
+                        <!-- widgets column center -->
+
+
+
+                        <ul class="list-unstyled clear-margins">
+                            <!-- widgets -->
+
+                            <li class="widget-container widget_recent_news">
+                                <!-- widgets list -->
+
+                                <h1 class="title-widget">Contact Detail </h1>
+
+                                <div class="footerp">
+
+                                    <h2 class="title-median">StitchFab.com</h2>
+                                    <p><b>Email id:</b> <a href="mailto:info@webenlance.com">info@StitchFab.com</a></p>
+                                    <p>
+                                        <b>Helpline Numbers </b>
+                                        <b style="color:#ffc106;">(24/7):</b>  +92-8130890090, +92-8130190010
+                                    </p>
+
+                                    <p><b>Corp Office / Postal Address</b></p>
+                                    <p><b>Phone Numbers : </b>7042827160, </p>
+                                    <p> 011-27568832, 9868387223</p>
+                                </div>
+
+                                <div class="social-icons">
+                                    <ul class="nomargin">
+                                        <li>
+                                            <a href="https://www.facebook.com"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                                            <a href="https://twitter.com"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                                            <a href="https://plus.google.com"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="copyright">
+                            © 2017, StitchFab, All rights reserved
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="design">
+                            <a href="#">Franchisee </a> |  <a target="_blank" href="http://www.webenlance.com">Web Design & Development by Squad</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

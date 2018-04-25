@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+
+<div class="row container-fluid">
+    <div id="CarousalId" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#CarousalId" data-slide-to="0" class="active"></li>
+            <li data-target="#CarousalId" data-slide-to="1"></li>
+            <li data-target="#CarousalId" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="@Url.Content("~/Content/template/")img/kurta5.jpg" style="width:1400px;height:491px;" />
+            </div>
+            <div class="item">
+                <img src="@Url.Content("~/Content/template/")img/ladies.jpg" style="width:1400px;height:491px;" />
+
+            </div>
+            <div class="item">
+                <img src="@Url.Content("~/Content/template/")img/pair.jpg" style="width:1400px;height:491px;" />
+            </div>
+            <div class="item">
+                <img src="@Url.Content("~/Content/template/")img/shirts-colors.jpg" style="width:1400px;height:491px;" />
+            </div>
+            <div class="item">
+                <img src="@Url.Content("~/Content/template/")img/mix.jpg" style="width:1400px;height:491px;" />
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#CarousalId" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#CarousalId" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</div>
+<div class="row container-fluid">
+    <div class="jumbotron custom">
+        <h1>WELCOME TO STITCH FAB</h1>
+        <h3>Perfect Fit - Comfortable Fabrics - Your Own Unique Style</h3>
+    </div>
+</div>
+
+
